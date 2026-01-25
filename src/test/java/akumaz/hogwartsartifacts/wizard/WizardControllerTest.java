@@ -259,7 +259,6 @@ class WizardControllerTest {
         // Given
         doThrow(new ObjectNotFoundException("wizard",5)).when(this.wizardService)
                 .assignArtifact(5,"1250808601744904191");
-
         // When and Then
         this.mockMvc.perform(put(this.baseUrl + "/wizards/5/artifacts/1250808601744904191").accept(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.flag").value(false))
