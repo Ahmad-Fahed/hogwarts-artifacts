@@ -9,9 +9,9 @@ import akumaz.hogwartsartifacts.wizard.dto.WizardDto;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
-
 import java.util.List;
 import java.util.stream.Collectors;
+
 
 @RestController
 @RequestMapping("${api.endpoint.base-url}/wizards")
@@ -71,9 +71,9 @@ public class WizardController {
     }
 
     @PutMapping("/{wizardId}/artifacts/{artifactId}")
-    public Result assignArtifact(@PathVariable Integer wizardId,@PathVariable String artifactId){
-        this.wizardService.assignArtifact(wizardId,artifactId);
-        return new Result(true,StatusCode.SUCCESS,"Artifact Assignment Success");
+    public Result assignArtifact(@PathVariable Integer wizardId, @PathVariable String artifactId) {
+        this.wizardService.assignArtifact(wizardId, artifactId);
+        return new Result(true, StatusCode.SUCCESS, "Artifact Assignment Success");
     }
 
 }
