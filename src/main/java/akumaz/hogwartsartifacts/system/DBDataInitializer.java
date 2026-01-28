@@ -3,13 +3,11 @@ package akumaz.hogwartsartifacts.system;
 import akumaz.hogwartsartifacts.artifact.Artifact;
 import akumaz.hogwartsartifacts.artifact.ArtifactRepository;
 import akumaz.hogwartsartifacts.hogwartsuser.HogwartsUser;
-import akumaz.hogwartsartifacts.hogwartsuser.UserRepository;
 import akumaz.hogwartsartifacts.hogwartsuser.UserService;
 import akumaz.hogwartsartifacts.wizard.Wizard;
 import akumaz.hogwartsartifacts.wizard.WizardRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-
 
 @Component
 public class DBDataInitializer implements CommandLineRunner {
@@ -29,7 +27,6 @@ public class DBDataInitializer implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-
         Artifact a1 = new Artifact();
         a1.setId("1250808601744904191");
         a1.setName("Deluminator");
@@ -89,7 +86,7 @@ public class DBDataInitializer implements CommandLineRunner {
 
         artifactRepository.save(a6);
 
-        // Create some users
+        // Create some users.
         HogwartsUser u1 = new HogwartsUser();
         u1.setId(1);
         u1.setUsername("john");

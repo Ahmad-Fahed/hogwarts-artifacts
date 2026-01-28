@@ -1,6 +1,7 @@
 package akumaz.hogwartsartifacts.hogwartsuser;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import akumaz.hogwartsartifacts.system.StatusCode;
+
 import org.hamcrest.Matchers;
 import org.json.JSONObject;
 import org.junit.jupiter.api.BeforeEach;

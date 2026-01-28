@@ -18,7 +18,7 @@ import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.catchThrowable;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.*;
 
@@ -220,7 +220,7 @@ class WizardServiceTest {
         given(this.wizardRepository.findById(3)).willReturn(Optional.of(w3));
 
         // When
-        this.wizardService.assignArtifact(3,"1250808601744904192");
+        this.wizardService.assignArtifact(3, "1250808601744904192");
 
         // Then
         assertThat(a.getOwner().getId()).isEqualTo(3);
@@ -246,26 +246,24 @@ class WizardServiceTest {
 
         // When
         Throwable thrown = assertThrows(ObjectNotFoundException.class, () -> {
-            this.wizardService.assignArtifact(3,"1250808601744904192");
+            this.wizardService.assignArtifact(3, "1250808601744904192");
         });
 
         // Then
         assertThat(thrown)
                 .isInstanceOf(ObjectNotFoundException.class)
-                        .hasMessage("Could not find wizard with Id 3");
-
+                .hasMessage("Could not find wizard with Id 3");
         assertThat(a.getOwner().getId()).isEqualTo(2);
     }
 
     @Test
     void testAssignArtifactErrorWithNonExistentArtifactId() {
         // Given
-
         given(this.artifactRepository.findById("1250808601744904192")).willReturn(Optional.empty());
 
         // When
         Throwable thrown = assertThrows(ObjectNotFoundException.class, () -> {
-            this.wizardService.assignArtifact(3,"1250808601744904192");
+            this.wizardService.assignArtifact(3, "1250808601744904192");
         });
 
         // Then
