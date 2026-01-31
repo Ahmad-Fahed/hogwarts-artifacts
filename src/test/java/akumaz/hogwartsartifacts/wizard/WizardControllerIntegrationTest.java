@@ -164,7 +164,6 @@ class WizardControllerIntegrationTest {
         Wizard a = new Wizard();
         a.setId(1); // Valid id
         a.setName(""); // Updated name is empty.
-
         String json = this.objectMapper.writeValueAsString(a);
 
         this.mockMvc.perform(put(this.baseUrl + "/wizards/1").contentType(MediaType.APPLICATION_JSON).content(json).accept(MediaType.APPLICATION_JSON).header(HttpHeaders.AUTHORIZATION, this.token))
