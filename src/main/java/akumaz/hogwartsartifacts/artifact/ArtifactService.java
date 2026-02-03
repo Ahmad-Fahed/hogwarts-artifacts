@@ -1,6 +1,7 @@
 package akumaz.hogwartsartifacts.artifact;
 
 import akumaz.hogwartsartifacts.artifact.utils.IdWorker;
+import io.micrometer.core.annotation.Timed;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 import akumaz.hogwartsartifacts.system.exception.ObjectNotFoundException;
@@ -26,6 +27,7 @@ public class ArtifactService {
                 .orElseThrow(()-> new ObjectNotFoundException("artifact",artifactId));
     }
 
+    @Timed("findAllArtifactsService.time")
     public List<Artifact> findAll() {
         return this.artifactRepository.findAll();
     }
