@@ -4,6 +4,8 @@ import akumaz.hogwartsartifacts.artifact.utils.IdWorker;
 import io.micrometer.core.annotation.Timed;
 import io.micrometer.observation.annotation.Observed;
 import jakarta.transaction.Transactional;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import akumaz.hogwartsartifacts.system.exception.ObjectNotFoundException;
 
@@ -54,5 +56,9 @@ public class ArtifactService {
         this.artifactRepository.findById(artifactId)
                 .orElseThrow(()-> new ObjectNotFoundException("artifact",artifactId));
         this.artifactRepository.deleteById(artifactId);
+    }
+
+    public Page<Artifact> findAll(Pageable pageable) {
+        return this.artifactRepository.findAll(pageable);
     }
 }
