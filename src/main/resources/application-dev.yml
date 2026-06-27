@@ -6,3 +6,12 @@ spring:
       driver-class-name: org.h2.Driver
   jpa:
     show-sql: true
+  cloud:
+    azure:
+      storage:
+        account-name: ${AZURE_STORAGE_ACCOUNT_NAME}
+        account-key: ${AZURE_STORAGE_ACCOUNT_KEY}
+  servlet:
+    multipart:
+      max-file-size: 2MB
+      max-request-size: 20MB
