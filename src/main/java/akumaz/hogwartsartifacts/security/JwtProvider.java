@@ -1,5 +1,6 @@
 package akumaz.hogwartsartifacts.security;
 
+import akumaz.hogwartsartifacts.hogwartsuser.MyUserPrincipal;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.oauth2.jwt.JwtClaimsSet;
@@ -35,6 +36,7 @@ public class JwtProvider {
                 .issuedAt(now)
                 .expiresAt(now.plus(expiresIn, ChronoUnit.HOURS))
                 .subject(authentication.getName())
+                .claim("userId", ((MyUserPrincipal)(authentication.getPrincipal())).getHogwartsUser().getId())
                 .claim("authorities", authorities)
                 .build();
 
