@@ -3,14 +3,13 @@ spring:
       url: jdbc:h2:mem:hogwarts
       username: sa
       password:
-      driver-class-name: org.h2.Driver
   jpa:
     show-sql: true
   cloud:
     azure:
       storage:
-        account-name: ${AZURE_STORAGE_ACCOUNT_NAME}
-        account-key: ${AZURE_STORAGE_ACCOUNT_KEY}
+        account-name: ${AZURE_STORAGE_ACCOUNT_NAME:YOUR_ACCOUNT_NAME} # environment variable with a default value
+        account-key: ${AZURE_STORAGE_ACCOUNT_KEY:YOUR_ACCOUNT_KEY} # environment variable with a default value
   servlet:
     multipart:
       max-file-size: 2MB

@@ -4,15 +4,18 @@ spring:
       keyvault:
         secret:
           property-sources[0]:
-            endpoint: ${AZURE_KEY_VAULT_ENDPOINT} # Environment variable
+            endpoint: ${AZURE_KEY_VAULT_ENDPOINT} # environment variable
       storage:
         blob:
-          account-name: ${AZURE_STORAGE_ACCOUNT_NAME} # Environment variable
+          account-name: ${AZURE_STORAGE_ACCOUNT_NAME} # environment variable
+  servlet:
+    multipart:
+      max-file-size: 2MB
+      max-request-size: 20MB
   datasource:
-      # Secrets from Azure Key Vault:
-      url: ${datasource-url} # URL of MySQL in Azure
-      username: ${datasource-username} # admin Username of MySQL
-      password: ${datasource-password} # password of admin of MySQL
+    url: ${datasource-url} # secret from Azure Key Vault
+    username: ${datasource-username} # secret from Azure Key Vault
+    password: ${datasource-password} # secret from Azure Key Vault
   jpa:
     hibernate:
-      ddl-auto: none # Turnoff the DDL auto generation
+      ddl-auto: none # Turn off the DDL auto generation.

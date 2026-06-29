@@ -6,6 +6,7 @@ import akumaz.hogwartsartifacts.hogwartsuser.dto.UserDto;
 import akumaz.hogwartsartifacts.system.Result;
 import akumaz.hogwartsartifacts.system.StatusCode;
 import jakarta.validation.Valid;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
